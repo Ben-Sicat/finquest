@@ -1,0 +1,5 @@
+# this is how you add .env file to gitignore
+
+.env 
+#also now add the cred.json on the gitignore file
+cred.json
