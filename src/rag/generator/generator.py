@@ -129,7 +129,7 @@ async def generate_specific_advisory(user_id: str, question: str) -> str:
         )
         | prompt
         | gemini
-        | str  # Convert output to string
+        | list  # Convert output to string
     )
 
     # Run the chain
