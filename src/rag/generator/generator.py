@@ -129,26 +129,24 @@ async def generate_specific_advisory(user_id: str, question: str) -> str:
         )
         | prompt
         | gemini
-        | list  # Convert output to string
+        | str  # Convert output to string
     )
 
     # Run the chain
     response = chain.invoke({"question": question, "user_data": user_data})
     return response
 
-async def main():
-    # Example of asking a general advisory question
-    # general_response = await ask_general_advisory("What are the best practices for saving money?")
-    # print("General Advisory Response:")
-    # print(general_response)
+# async def main():
+#     # Example of asking a general advisory question
+#     # general_response = await ask_general_advisory("What are the best practices for saving money?")
+#     # print("General Advisory Response:")
+#     # print(general_response)
 
-    # Example of generating specific financial advice for a user
-    specific_response = await generate_specific_advisory(
-        user_id="66adfab6844c979caa396f04",
-        question="How should I allocate my budget so that i can buy the new iphone in 2 months"
-    )
-    print("Specific Financial Advisory Response:")
-    print(specific_response)
+#     # Example of generating specific financial advice for a user
+#     specific_response = await generate_specific_advisory(
+#         user_id="66adfab6844c979caa396f04",
+#         question="How should I allocate my budget so that i can buy the new iphone in 2 months"
+#     )
+#     print("Specific Financial Advisory Response:")
+#     print(specific_response)
 
-if __name__ == "__main__":
-    asyncio.run(main())
